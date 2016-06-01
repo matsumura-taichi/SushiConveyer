@@ -16,5 +16,30 @@ public class ConveyerTest {
 		assertEquals("まぐろ", fewNetas[0]);
 	}
 
+	@Test
+	public void testFewNetaList2() {
+		Conveyer conveyer = new Conveyer();
+		conveyer.add("まぐろ");
+		conveyer.add("とろ");
+		String[] fewNetas = conveyer.getFewNetaList();
+
+		assertEquals(2, fewNetas.length);
+		assertEquals("まぐろ", fewNetas[0]);
+		assertEquals("とろ", fewNetas[1]);
+	}
+
+	@Test
+	public void testFewNetaList3() {
+		Conveyer conveyer = new Conveyer();
+		conveyer.add("まぐろ");
+		conveyer.add("とろ");
+		conveyer.add("いくら");
+		String[] fewNetas = conveyer.getFewNetaList();
+
+		assertEquals(3, fewNetas.length);
+		assertEquals("まぐろ", fewNetas[0]);
+		assertEquals("とろ", fewNetas[1]);
+		assertEquals("いくら", fewNetas[2]);
+	}
 
 }

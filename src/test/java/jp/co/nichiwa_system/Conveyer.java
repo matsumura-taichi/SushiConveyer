@@ -7,10 +7,9 @@ import java.util.Map;
 public class Conveyer {
 
 	private Map<String, Integer> netaMap = new LinkedHashMap<String, Integer>();
-	private String[] netas;
 
 	public String[] getFewNetaList() {
-		netas = new String[netaMap.size()];
+		String[] netas = new String[netaMap.size()];
 
 		Iterator<String> netaKeys = netaMap.keySet().iterator();
 		for (int i = 0; netaKeys.hasNext(); i++) {

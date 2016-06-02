@@ -91,11 +91,15 @@ public class ConveyerTest {
 		conveyer.add("まぐろ");
 		conveyer.add("とろ");
 		conveyer.add("いくら");
-		String[] fewNetas = conveyer.getFewNetaListOld();
+		List<NetaCountVo> fewNetas = conveyer.getFewNetaList();
 
-		assertEquals(2, fewNetas.length);
-		assertEquals("とろ", fewNetas[0]);
-		assertEquals("いくら", fewNetas[1]);
+		assertEquals(2, fewNetas.size());
+		NetaCountVo vo = (NetaCountVo)fewNetas.get(0);
+		assertEquals("とろ", vo.name);
+		assertEquals(1, vo.count);
+		vo = (NetaCountVo)fewNetas.get(1);
+		assertEquals("いくら", vo.name);
+		assertEquals(1, vo.count);
 	}
 
 }

@@ -10,7 +10,8 @@ public class Conveyer {
 
 	private Map<String, Integer> netaMap = new LinkedHashMap<String, Integer>();
 
-	public String[] getFewNetaList() {
+	//TODO 削除メソッド
+	public String[] getFewNetaListOld() {
 		List<String> fewNetaList = new ArrayList<String>();
 
 		Iterator<String> netaKeys = netaMap.keySet().iterator();
@@ -23,6 +24,22 @@ public class Conveyer {
 		}
 
 		return (String[]) fewNetaList.toArray(new String[0]);
+	}
+
+	public List<NetaCountVo> getFewNetaList() {
+		List<NetaCountVo> netas = new ArrayList<NetaCountVo>();
+
+		Iterator<String> netaKeys = netaMap.keySet().iterator();
+		for (int i = 0; netaKeys.hasNext(); i++) {
+			String netaKey = (String) netaKeys.next();
+			int count = ((Integer)netaMap.get(netaKey)).intValue();
+			if(count <= 5) {
+				NetaCountVo vo = new NetaCountVo(netaKey, count);
+				netas.add(vo);
+			}
+		}
+
+		return netas;
 	}
 
 	public void add(String neta) {

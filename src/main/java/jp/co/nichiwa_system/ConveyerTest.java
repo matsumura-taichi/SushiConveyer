@@ -2,6 +2,8 @@ package jp.co.nichiwa_system;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 
 public class ConveyerTest {
@@ -10,10 +12,12 @@ public class ConveyerTest {
 	public void testFewNetaList1() {
 		Conveyer conveyer = new Conveyer();
 		conveyer.add("まぐろ");
-		String[] fewNetas = conveyer.getFewNetaList();
+		List<NetaCountVo> fewNetas = conveyer.getFewNetaList();
 
-		assertEquals(1, fewNetas.length);
-		assertEquals("まぐろ", fewNetas[0]);
+		assertEquals(1, fewNetas.size());
+		NetaCountVo vo = (NetaCountVo)fewNetas.get(0);
+		assertEquals("まぐろ", vo.name);
+		assertEquals(1, vo.count);
 	}
 
 	@Test
@@ -21,7 +25,7 @@ public class ConveyerTest {
 		Conveyer conveyer = new Conveyer();
 		conveyer.add("まぐろ");
 		conveyer.add("とろ");
-		String[] fewNetas = conveyer.getFewNetaList();
+		String[] fewNetas = conveyer.getFewNetaListOld();
 
 		assertEquals(2, fewNetas.length);
 		assertEquals("まぐろ", fewNetas[0]);
@@ -34,7 +38,7 @@ public class ConveyerTest {
 		conveyer.add("まぐろ");
 		conveyer.add("とろ");
 		conveyer.add("いくら");
-		String[] fewNetas = conveyer.getFewNetaList();
+		String[] fewNetas = conveyer.getFewNetaListOld();
 
 		assertEquals(3, fewNetas.length);
 		assertEquals("まぐろ", fewNetas[0]);
@@ -52,7 +56,7 @@ public class ConveyerTest {
 		conveyer.add("まぐろ");
 		conveyer.add("とろ");
 		conveyer.add("いくら");
-		String[] fewNetas = conveyer.getFewNetaList();
+		String[] fewNetas = conveyer.getFewNetaListOld();
 
 		assertEquals(3, fewNetas.length);
 		assertEquals("まぐろ", fewNetas[0]);
@@ -71,7 +75,7 @@ public class ConveyerTest {
 		conveyer.add("まぐろ");
 		conveyer.add("とろ");
 		conveyer.add("いくら");
-		String[] fewNetas = conveyer.getFewNetaList();
+		String[] fewNetas = conveyer.getFewNetaListOld();
 
 		assertEquals(2, fewNetas.length);
 		assertEquals("とろ", fewNetas[0]);
